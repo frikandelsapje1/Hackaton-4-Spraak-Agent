@@ -65,14 +65,48 @@ $("#grid").addEventListener("click", (e) => {
 });
 $("#detail-close").addEventListener("click", () => $("#detail").close());
 
-// Chat UI (nog zonder backend): vervang `botReply` door je AI-call.
+const BACKEND_URL = "http://localhost:8001";
+const history = [];
+
+function syncCheckboxes() {
+  document.querySelectorAll(".filters input").forEach((i) => {
+    i.checked = state[i.dataset.key].has(i.value);
+  });
+}
+
+// Voert de actie uit die het backend/Claude teruggeeft.
+function applyAction({ action, params = {} }) {
+  if (action === "search") { state.q = params.query || ""; $("#search").value = state.q; }
+  else if (action === "filter") {
+    for (const k of Object.keys(facets)) {
+      if (params[k] !== undefined) state[k] = new Set([String(params[k])]);
+    }
+    syncCheckboxes();
+  } else if (action === "sort") { state.sort = params.sort_by || "name"; $("#sort").value = state.sort; }
+  else if (action === "reset") $("#reset").click();
+  render();
+  if (action === "open_module") openDetail(params.module_id);
+}
 const addMsg = (text, who) => {
   const d = document.createElement("div");
   d.className = `msg ${who}`; d.textContent = text;
   $("#chat-msgs").append(d); $("#chat-msgs").scrollTop = 1e9;
 };
 async function botReply(text) {
-  return "Chatbot is nog niet gekoppeld aan een backend.";
+  try {
+    const res = await fetch(`${BACKEND_URL}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, history: history.slice(-10) }),
+    });
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    applyAction(data);
+    history.push({ role: "user", content: text }, { role: "assistant", content: data.reply });
+    return data.reply;
+  } catch {
+    return "Ik kan de backend niet bereiken.";
+  }
 }
 $("#chat-toggle").addEventListener("click", () => { $("#chat").hidden = !$("#chat").hidden; });
 $("#chat-close").addEventListener("click", () => { $("#chat").hidden = true; });
