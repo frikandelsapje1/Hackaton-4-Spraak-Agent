@@ -144,9 +144,3 @@ Interactieve documentatie: http://localhost:8001/docs
 | 500 bij spraak: `open() got an unexpected keyword argument 'metadata_errors'` | Te nieuwe PyAV: `pip install "av>=14,<16"` (staat al in `requirements.txt`) |
 | Geen microfoon | Gebruik `localhost` en geef de browser toestemming |
 | Eerste spraak duurt lang | Whisper-model wordt gedownload |
-
-## Nog te doen
-- Filter voor persoonsgegevens vóór de aanroep naar OpenAI
-- Beslissen over verwerkersovereenkomst en bewaartermijn bij OpenAI
-- Modelkeuze onderbouwen en de Prompt Charter invullen
-- De crawler (`kiesopmaat-crawler/`) is nog leeg
