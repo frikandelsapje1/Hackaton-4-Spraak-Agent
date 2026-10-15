@@ -37,6 +37,8 @@ nav a:hover, nav a.active { border-color:var(--primary); }
 .tags { display:flex; flex-wrap:wrap; gap:6px; }
 .tag { background:#eef0f4; border-radius:99px; padding:3px 10px; font-size:.78rem; }
 .tag.ec { background:var(--primary); color:#fff; }
+.card.rec { border-color:var(--primary); }
+.why { background:#fdf0f7; border-left:3px solid var(--primary); padding:8px 10px; border-radius:4px; color:var(--dark) !important; }
 
 dialog { border:0; border-radius:10px; max-width:560px; width:92%; padding:28px; position:relative; }
 dialog::backdrop { background:rgba(0,0,0,.5); }
@@ -54,7 +56,10 @@ dialog .close { position:absolute; top:10px; right:14px; background:none; border
 .msg.bot { background:#eef0f4; align-self:flex-start; }
 .msg.user { background:var(--primary); color:#fff; align-self:flex-end; }
 .chat-form { display:flex; gap:6px; padding:10px; border-top:1px solid var(--border); }
-.chat-form input { flex:1; padding:8px; border:1px solid var(--border); border-radius:6px; font:inherit; }
+.chat-form input { flex:1; padding:8px; border:1px solid var(--border); border-radius:6px; font:inherit; min-width:0; }
+.mic { padding:8px 10px; }
+.mic.rec { background:#c00; border-color:#c00; animation:pulse 1s infinite; }
+@keyframes pulse { 50% { opacity:.5; } }
 
 @media (max-width:800px) {
   .layout { grid-template-columns:1fr; }

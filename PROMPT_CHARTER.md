@@ -27,10 +27,12 @@
 | 2 | Filteren | "Laat alleen masters zien" | filter `level` zetten |
 | 3 | Module openen | "Open Cloud Computing" | `openDetail(id)` |
 | 4 | Filters wissen | "Begin opnieuw" | reset |
-| 5 | <...> | <...> | <...> |
+| 5 | Advies geven | "Welke minor past bij mij?" | `recommend`: aanbevolen kaarten tonen |
+| 6 | Doorvragen | "Ik wil iets met techniek" | `ask`: één gerichte vervolgvraag |
 
 ## 4. Grenzen en regels
 - **Mag niet:** <verzinnen van modules, persoonlijke data vragen, ...>
+- **Doorvragen:** <welke info is nodig voor een advies (interesses, niveau, EC, plaats, taal, start), hoeveel vragen maximaal, in welke volgorde>
 - **Onbekende of onduidelijke invoer:** <om verduidelijking vragen>
 - **Buiten scope:** <hoe te reageren>
 - **Spraakfouten (STT):** <omgaan met verkeerd verstane woorden, bijv. fuzzy match op modulenamen>

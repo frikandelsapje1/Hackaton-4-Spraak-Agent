@@ -37,7 +37,8 @@
       <h2>Filters</h2>
       <div class="filter-group"><h3>Niveau</h3><div id="f-level"></div></div>
       <div class="filter-group"><h3>Thema</h3><div id="f-theme"></div></div>
-      <div class="filter-group"><h3>Periode</h3><div id="f-period"></div></div>
+      <div class="filter-group"><h3>Plaats</h3><div id="f-place"></div></div>
+      <div class="filter-group"><h3>Taal</h3><div id="f-language"></div></div>
       <div class="filter-group"><h3>Studiepunten (EC)</h3><div id="f-ec"></div></div>
       <button class="btn btn-outline" id="reset" type="button">Filters wissen</button>
     </aside>
@@ -49,7 +50,6 @@
           <select id="sort">
             <option value="name">Naam (A–Z)</option>
             <option value="ec">Studiepunten</option>
-            <option value="period">Periode</option>
           </select>
         </label>
       </div>
@@ -74,12 +74,12 @@
       <div class="msg bot">Hoi! Ik help je straks met het kiezen van modules.</div>
     </div>
     <form class="chat-form" id="chat-form">
+      <button class="btn mic" id="chat-mic" type="button" aria-label="Spreek (klik om te starten/stoppen)">🎤</button>
       <input id="chat-input" placeholder="Typ je bericht…" autocomplete="off">
       <button class="btn" type="submit">Stuur</button>
     </form>
   </aside>
 
-  <script src="modules.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

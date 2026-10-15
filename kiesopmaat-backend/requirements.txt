@@ -1,4 +1,7 @@
 fastapi
 uvicorn[standard]
-anthropic
+openai
 python-dotenv
+python-multipart
+faster-whisper
+av>=14,<16
