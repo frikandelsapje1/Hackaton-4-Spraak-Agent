@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modules – Kies op Maat (demo)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Kies<span>op</span>Maat</a>
+      <nav aria-label="Hoofdmenu">
+        <a href="#">Home</a>
+        <a href="#" class="active">Modules</a>
+        <a href="#">Over Kies op Maat</a>
+        <a href="#">Veelgestelde vragen</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a class="btn btn-outline" href="#">Inloggen</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Modules</h1>
+      <p>Bekijk alle modules en kies wat bij jou past.</p>
+      <form class="search" role="search" id="search-form">
+        <input type="search" id="search" placeholder="Zoek op naam, trefwoord of thema…" aria-label="Zoeken">
+        <button class="btn" type="submit">Zoeken</button>
+      </form>
+    </div>
+  </section>
+
+  <main class="container layout">
+    <aside class="filters" aria-label="Filters">
+      <h2>Filters</h2>
+      <div class="filter-group"><h3>Niveau</h3><div id="f-level"></div></div>
+      <div class="filter-group"><h3>Thema</h3><div id="f-theme"></div></div>
+      <div class="filter-group"><h3>Periode</h3><div id="f-period"></div></div>
+      <div class="filter-group"><h3>Studiepunten (EC)</h3><div id="f-ec"></div></div>
+      <button class="btn btn-outline" id="reset" type="button">Filters wissen</button>
+    </aside>
+
+    <section class="results">
+      <div class="results-bar">
+        <p id="count" aria-live="polite"></p>
+        <label>Sorteren
+          <select id="sort">
+            <option value="name">Naam (A–Z)</option>
+            <option value="ec">Studiepunten</option>
+            <option value="period">Periode</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2026 Kies op Maat – demo-nabouw voor schoolproject</div>
+  </footer>
+
+  <dialog id="detail">
+    <button class="close" id="detail-close" aria-label="Sluiten">×</button>
+    <div id="detail-body"></div>
+  </dialog>
+
+  <!-- Chatbot placeholder: hier later de AI-agent aanhaken -->
+  <button class="chat-toggle" id="chat-toggle" aria-label="Open assistent">💬</button>
+  <aside class="chat" id="chat" hidden aria-label="Assistent">
+    <div class="chat-head">Assistent <button id="chat-close" aria-label="Sluiten">×</button></div>
+    <div class="chat-msgs" id="chat-msgs">
+      <div class="msg bot">Hoi! Ik help je straks met het kiezen van modules.</div>
+    </div>
+    <form class="chat-form" id="chat-form">
+      <input id="chat-input" placeholder="Typ je bericht…" autocomplete="off">
+      <button class="btn" type="submit">Stuur</button>
+    </form>
+  </aside>
+
+  <script src="modules.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
